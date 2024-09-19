@@ -5,5 +5,7 @@ use todolist\App\Router;
 use todolist\Controller\TaskController;
 
 Router::Add("GET","/",TaskController::class,"index");
+Router::Add("GET","/add",TaskController::class,"create");
+Router::Add("POST","/add",TaskController::class,"postCreate");
 
 Router::Run();
