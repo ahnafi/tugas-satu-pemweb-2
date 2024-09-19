@@ -16,20 +16,25 @@ class TaskRepository
     public function save(Task $task): Task
     {
         $statement = $this->connection->prepare(
-            "INSERT INTO tasks (title, description, due_date,status,priority) VALUES (?, ?, ?, ?, ?)"
+            "INSERT INTO tasks (title, description, due_date) VALUES (?, ?, ?)"
         );
         $statement->execute([
             $task->title,
             $task->description,
             $task->due_date,
-            $task->status,
-            $task->priority
         ]);
 
         // ambil id dari task yang baru saja dibuat
         $task->id = (int)$this->connection->lastInsertId();
 
         return $task;
+    }
+
+    public function showAll(): array
+    {
+        $statement = $this->connection->prepare("SELECT * FROM tasks");
+        $statement->execute();
+        return $statement->fetchAll();
     }
 
     public function removeAll():void {

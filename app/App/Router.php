@@ -44,7 +44,10 @@ class Router
                
                 array_shift($variables);
                 call_user_func([$controller,$function],$variables);
+                return;
             }
         }
+        http_response_code(404);
+        echo 'CONTROLLER NOT FOUND';
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Exception;
+namespace todolist\exception;
 
 class ValidationException extends \Exception
 {

@@ -2,7 +2,7 @@
 
 namespace todolist\Services;
 
-use ProgrammerZamanNow\Belajar\PHP\MVC\Exception\ValidationException;
+use todolist\Exception\ValidationException;
 use todolist\Config\Database;
 use todolist\Domain\Task;
 use todolist\Model\TaskCreateRequest;
@@ -24,8 +24,6 @@ class TaskService {
             $task = new Task();
             $task->title = $request->title;
             $task->description = $request->description;
-            $task->priority = $request->priority;
-            $task->status = $request->status;
             $task->due_date = $request->due_date;
 
             $result = $this->taskRepository->save($task);
@@ -41,10 +39,18 @@ class TaskService {
         }
     }
 
+    public function readAll():array {
+        try {
+            return $this->taskRepository->showAll();
+        }catch (\PDOException $exception) {
+            throw new \Exception(" error message : ". $exception->getMessage());
+        }
+    }
+
     public function validateTaskCreateRequest(TaskCreateRequest $request):void{
         
-        if($request->title == null || $request->title == "" || strlen($request->title) > 255 || $request->description == null || $request->description == ""  || $request->priority == null || $request->priority == "" || $request->status == null || $request->status == "" ){
-            throw new ValidationException("task must have title, description, priority, status, and due date");
+        if($request->title == null || $request->title == "" || strlen($request->title) > 255 || $request->description == null || $request->description == "" ){
+            throw new ValidationException("task must have title, description, and due date");
         }
 
     }
