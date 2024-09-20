@@ -7,5 +7,7 @@ use todolist\Controller\TaskController;
 Router::Add("GET","/",TaskController::class,"index");
 Router::Add("GET","/add",TaskController::class,"create");
 Router::Add("POST","/add",TaskController::class,"postCreate");
+Router::Add("GET","/update/(\d+)",TaskController::class,"update");
+Router::Add("POST","/update/(\d+)",TaskController::class,"postUpdate");
 
 Router::Run();

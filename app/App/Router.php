@@ -47,7 +47,7 @@ class Router
                 return;
             }
         }
-        http_response_code(404);
-        echo 'CONTROLLER NOT FOUND';
+        // http_response_code(404);
+        View::redirect("/");
     }
 }
