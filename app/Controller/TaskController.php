@@ -32,13 +32,13 @@ class TaskController
 
     public function postCreate(){
         $task = new TaskCreateRequest();
-        $task->title = $_POST["title"];
-        $task->description = $_POST["description"];
-        $task->due_date = $_POST["due_date"];
+        $task->title = htmlspecialchars($_POST["title"]);
+        $task->description = htmlspecialchars($_POST["description"]);
+        $task->due_date = htmlspecialchars($_POST["due_date"]);
         
         try{
-            $this->taskService->create($task);
-            View::render("add",["title"=>"Create Task","success"=>"Task Created"]);
+            $new = $this->taskService->create($task)->task;
+            View::render("add",["title"=>"Create Task","success"=>"Task $new->title Created"]);
         }catch(ValidationException $err){
             View::render("add",["title"=>"Create Task","error"=>$err->getMessage()]);
         }
@@ -67,6 +67,17 @@ class TaskController
         }catch(ValidationException $err){
             $task = $this->taskService->find($task->id);
             View::render("update" ,["title"=>"Update Task","error"=>$err->getMessage(),"task"=>$task]);
+        }
+    }
+
+    public function postDelete(){
+        $id = (int) $_POST["id"];
+
+        try{
+            $this->taskService->delete($id);
+            View::redirect("/");
+        }catch(ValidationException $err){
+            View::redirect("/");
         }
     }
 }

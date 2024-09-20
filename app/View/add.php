@@ -1,19 +1,19 @@
-<div class="container justify-content-center">
-    
+<div class="justify-content-center">
+
     <?php if (isset($model['error'])) { ?>
         <div class="row">
             <div class="alert alert-danger my-3" role="alert">
                 <?= $model['error'] ?>
             </div>
         </div>
-        <?php } ?>
-        <?php if (isset($model['success'])) { ?>
-            <div class="row">
-                <div class="alert alert-success my-3" role="alert">
-                    <?= $model['success'] ?>
-                </div>
+    <?php } ?>
+    <?php if (isset($model['success'])) { ?>
+        <div class="row">
+            <div class="alert alert-success my-3" role="alert">
+                <?= $model['success'] ?>
             </div>
-            <?php } ?>
+        </div>
+    <?php } ?>
 
     <div class="row">
         <div class="col-md-6">
