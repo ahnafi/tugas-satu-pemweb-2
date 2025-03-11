@@ -5,14 +5,14 @@ function getDatabaseConfig(): array
     return [
         "database" => [
             "test" => [
-                "url" => "mysql:host=localhost:3306;dbname=todolist_php_test",
-                "username" => "speed",
-                "password" => "qwerty"
+                "url" => "mysql:host=localhost:3306;dbname=",
+                "username" => "",
+                "password" => ""
             ],
             "prod" => [
-                "url" => "mysql:host=localhost:3306;dbname=todolist_php",
-                "username" => "speed",
-                "password" => "qwerty"
+                "url" => "mysql:host=localhost;dbname=manajemen_data_supplier",
+                "username" => "root",
+                "password" => ""
             ]
         ]
     ];

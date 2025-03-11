@@ -20,7 +20,7 @@
             <form method="post" action="/add">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" name="title">
+                    <input type="text" class="form-control" id="title" name="name">
                 </div>
                 <div class="mb-3">
                     <label for="Description" class="form-label">Description</label>

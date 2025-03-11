@@ -1,6 +1,6 @@
 <?php
 
-namespace todolist\App;
+namespace sulthon\App;
 
 class View {
     public static function render(string $view, $model): void {

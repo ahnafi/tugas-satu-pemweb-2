@@ -1,13 +1,6 @@
 <?php
 
-namespace todolist\Services;
-
-use todolist\Exception\ValidationException;
-use todolist\Config\Database;
-use todolist\Domain\Task;
-use todolist\Model\TaskCreateRequest;
-use todolist\Model\TaskCreateResponse;
-use todolist\Repository\TaskRepository;
+namespace sulthon\Services;
 
 class TaskService
 {

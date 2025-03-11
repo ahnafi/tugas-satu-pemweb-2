@@ -1,6 +1,6 @@
 <?php
 
-namespace todolist\Config;
+namespace sulthon\Config;
 
 class Database
 {

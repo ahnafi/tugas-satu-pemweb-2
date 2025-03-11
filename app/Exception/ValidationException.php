@@ -1,6 +1,6 @@
 <?php
 
-namespace todolist\exception;
+namespace sulthon\Exception;
 
 class ValidationException extends \Exception
 {

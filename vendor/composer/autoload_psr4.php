@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'todolist\\' => array($baseDir . '/app'),
+    'sulthon\\' => array($baseDir . '/app'),
 );

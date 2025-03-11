@@ -1,10 +1,19 @@
-create database todolist_php;
+-- Struktur Tabel
+-- Tabel suppliers:
+CREATE DATABASE manajemen_data_supplier;
 
-use todolist_php;
+CREATE TABLE suppliers
+(
+    id      INT PRIMARY KEY AUTO_INCREMENT,
+    name    VARCHAR(255) NOT NULL,
+    contact VARCHAR(100)
+);
 
-CREATE TABLE tasks (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT,
-    due_date DATE
+-- Tabel products:
+CREATE TABLE products
+(
+    id          INT PRIMARY KEY AUTO_INCREMENT,
+    name        VARCHAR(255) NOT NULL,
+    supplier_id INT,
+    FOREIGN KEY (supplier_id) REFERENCES suppliers (id)
 );
